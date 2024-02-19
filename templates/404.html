@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block content %}
+<div>
+  <b style="font-size: 10em;">404</b>
+  <div>
+    <button onclick="history.back()">Go back</button>
+    <button onclick="window.location = '/'">Home</button>
+  </div>
+</div>
+{% endblock content %}
