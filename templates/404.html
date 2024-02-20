@@ -4,12 +4,11 @@
 {{ super() }}
 {% endblock head %}
 
+{% block header %}
+{% endblock header %}
+
 {% block content %}
-<div>
+<div style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
   <b style="font-size: 10em;">404</b>
-  <div>
-    <button onclick="history.back()">Go back</button>
-    <button onclick="window.location = '/'">Home</button>
-  </div>
 </div>
 {% endblock content %}

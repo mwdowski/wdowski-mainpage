@@ -15,4 +15,16 @@ highlight_code = false
 [extra]
 # Put all your custom variables here
 
-[languages.pl]
+[translations]
+university = "University"
+mainpage = "Home page"
+projects = "Projects"
+
+[languages.pl-PL]
+
+[languages.pl-PL.translations]
+university = "Studia"
+mainpage = "Strona główna"
+projects = "Projekty"
+
+

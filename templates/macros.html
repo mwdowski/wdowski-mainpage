@@ -1,0 +1,33 @@
+{% macro language_switcher() %}
+<script>
+  function isPolish() {
+    return !window.location.pathname.startsWith("/pl-PL");
+  }
+  function polish() {
+    if (isPolish()) {
+      window.location.pathname = "pl-PL" + window.location.pathname;
+    }
+  }
+  function english() {
+    if (!isPolish()) {
+      window.location.pathname = window.location.pathname.substring(6);
+    }
+  }
+</script>
+<div class="language-switcher-wrapper>" onload="setLanguage()">
+  <div class="language" role="radiogroup">
+    <div class="language__container--left">
+      <input class="language__control" type="radio" id="language1-1" name="language-switch1" onclick="polish()" {% if lang == "pl-PL" %} checked {% endif%}>
+      <label class="language__label" for="language1-1">
+        &#127477&#127473 PL
+      </label>
+    </div>
+    <div class="language__container--right">
+      <input class="language__control" type="radio" id="language1-2" name="language-switch1" onclick="english()" {% if lang != "pl-PL" %} checked {% endif%}>
+      <label class="language__label" for="language1-2">
+        &#127468&#127463 EN
+      </label>
+    </div>
+  </div>
+</div>
+{% endmacro input %}

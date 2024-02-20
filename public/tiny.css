@@ -44,8 +44,12 @@
 
 section {
     flex: 1;
-    padding-top: 3rem;
+    padding-top: 1rem;
     padding-bottom: 3rem;
+}
+
+section p {
+    text-align: justify;
 }
 
 body {
@@ -156,13 +160,31 @@ blockquote {
 }
 
 footer {
-    padding-top: 1rem;
-    width: 100%;
+    margin-top: 1rem;
+    margin: auto;
     text-align: center;
-    max-width: inherit;
+    max-width: min(90%, 1100px);;
     padding-bottom: 1em;
 }
 
+header {
+    padding-top: 1rem;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.button {
+    display: block;
+    margin: 0 1em;
+    width: 7em;
+    text-decoration: none;
+}
+
+.button,
 button,
 input[type=button],
 input[type=reset],
@@ -177,6 +199,7 @@ input[type=submit] {
     transition-duration: .2s
 }
 
+.button
 button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
@@ -184,6 +207,7 @@ input[type=submit]:hover {
     background-color: var(--button-hover)
 }
 
+.button:active,
 button:active,
 input[type=button]:active,
 input[type=reset]:active,
@@ -191,6 +215,7 @@ input[type=submit]:active {
     transform: scale(1.05)
 }
 
+.button:focus-visible,
 button:focus-visible,
 input[type=button]:focus-visible,
 input[type=reset]:focus-visible,
@@ -199,6 +224,9 @@ input[type=submit]:focus-visible {
     outline: none
 }
 
+.button:disabled,
+.button:disabled:active,
+.button:disabled:hover,
 button:disabled,
 button:disabled:active,
 button:disabled:hover,
