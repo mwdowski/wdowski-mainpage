@@ -20,9 +20,10 @@
   {% block header %}
   <header style="width: 100%;">
     <nav style="display: flex; flex-direction: row; margin: auto;">
-      <a class="button">Strona główna {{config.extra}}</a>
-      <a class="button">Studia</a>
-      <a class="button">Projekty</a>
+      <a class="button" {% if lang=="pl-PL" %} href="/pl-PL" {% else %} href="/" {% endif %}>
+        {{trans(key="mainpage", lang=lang)}}</a>
+      <a class="button">{{trans(key="university", lang=lang)}}</a>
+      <a class="button">{{trans(key="projects", lang=lang)}}</a>
     </nav>
     <div style="margin: auto 0">
       {{macros::language_switcher()}}
