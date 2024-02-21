@@ -11,31 +11,32 @@
   <title>Michał Wdowski</title>
   {% endblock head %}
   {% block css %}
-  <link rel="stylesheet" href="{{ get_url(path='tiny.css') | safe }}">
-  <link rel="stylesheet" href="{{ get_url(path='language_switcher.css') | safe }}">
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+  <link rel="stylesheet" href="{{ get_url(path='custom.css') | safe }}">
   {% endblock css %}
 </head>
 
 <body>
   {% block header %}
-  <header style="width: 100%;">
-    <nav style="display: flex; flex-direction: row; margin: auto;">
+  <header>
+    <nav>
       <a class="button" {% if lang=="pl-PL" %} href="/pl-PL" {% else %} href="/" {% endif %}>
         {{trans(key="mainpage", lang=lang)}}</a>
       <a class="button">{{trans(key="university", lang=lang)}}</a>
       <a class="button">{{trans(key="projects", lang=lang)}}</a>
+      <div style="display: inline-block; margin-left: 0;">
+        {{macros::language_switcher2()}}
+      </div>
     </nav>
-    <div style="margin: auto 0">
-      {{macros::language_switcher()}}
-    </div>
   </header>
   {% endblock header %}
-  <section class="section">
-    <div class="container">
-      {% block content %} {% endblock %}
-    </div>
-  </section>
 
+  <div class="section">
+    <div class="container">
+      {% block content %}
+      {% endblock content%}
+    </div>
+  </div>
 
   {% block footer %}
   <footer>
@@ -44,6 +45,7 @@
       Michał Wdowski</a>.
   </footer>
   {% endblock footer %}
+
 </body>
 
 </html>

@@ -1,31 +1,21 @@
 .language {
-    width: 110px;
-    height: 30px;
-    font-size: 14px;
-    line-height: 1;
-    margin: 1em 0;
-    all: unset;
-    * {
-        all: unset;
-    }
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    margin: 0 0.5rem 1rem 0.5rem;
 }
 
 .language__container--left,
 .language__container--right {
-    position: relative;
     float: left;
-    width: 55px;
-    height: 30px;
     padding: 5px;
 }
 
 .language__label {
-    position: absolute;
     top: 0;
     left: 0;
     width: 55px;
     height: 30px;
-    border: 2px solid var(--background-hover);
+    border: 2px solid var(--accent);
     padding: 7px 8px 5px 0;
     background-repeat: no-repeat;
     background-position: 7px 7px;
@@ -45,11 +35,11 @@
 
 .language__control:hover+.language__label,
 .language__control:focus+.language__label {
-    background-color: var(--background-hover);
+    background-color: var(--accent-hover);
 }
 
 .language__control:checked+.language__label {
-    background-color: var(--background-hover);
+    background-color: var(--accent-hover);
 }
 
 .language__control:focus+.language__label,
