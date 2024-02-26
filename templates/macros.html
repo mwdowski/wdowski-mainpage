@@ -116,3 +116,7 @@
 </div>
 </div>
 {% endmacro %}
+
+{% macro lang_if_else(pl, eng) %}
+{% if lang=="pl-PL" %} {{pl}} {% else %} {{eng}} {% endif %}
+{% endmacro %}
