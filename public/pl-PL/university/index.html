@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pl-PL">
 
 
 <head>
@@ -18,13 +18,15 @@
   
   <header>
     <nav>
-      <a class="button"  href="/" >
-        Home page</a>
-      <a class="button">University</a>
-      <a class="button">Projects</a>
+      <a class="button"  href="/pl-PL" >
+        Strona główna</a>
+      <a class="button"  href="/pl-PL/university" >
+        Studia</a>
+      <a class="button"  href="/pl-PL/projects"  style="pointer-events: none">
+        Projekty</a>
 
     </nav>
-    <div style="display: inline-block; margin-left: 0; position: relative;">
+    <div style="display: inline-block; margin: auto 1rem auto 0; position: relative;">
       
 <script>
   function isPolish() {
@@ -91,13 +93,13 @@
 </style>
 <div onload="setLanguage()" class="language-switcher" style="" role="radiogroup">
   <div class="language-container-left">
-    <input class="language-control" type="radio" id="language1-1" name="language-switch1" onclick="polish()" />
+    <input class="language-control" type="radio" id="language1-1" name="language-switch1" onclick="polish()"  checked />
     <label class="language-label" for="language1-1">
       &#127477&#127473 PL
     </label>
   </div>
   <div class="language-container-right">
-    <input class="language-control" type="radio" id="language1-2" name="language-switch1" onclick="english()"  checked />
+    <input class="language-control" type="radio" id="language1-2" name="language-switch1" onclick="english()" />
     <label class="language-label" for="language1-2">
       &#127468&#127463 EN
     </label>
@@ -112,8 +114,16 @@
   <div class="section">
     <div class="container">
       
-<h1 id="hello-there">Hello there!</h1>
-<p>My name is <strong>Michał Wdowski</strong> and I am a programmer.</p>
+<h1 id="studia">Studia</h1>
+<h3 id="studia-inzynierskie">Studia inżynierskie</h3>
+<p>Ukończyłem kierunek Informatyka i Systemy Informacyjne na wydziale Matematyki i Nauk Informacyjnych (<a href="https://ww2.mini.pw.edu.pl/">MiNI</a>) Politechniki Warszawskiej. Uzyskałem wynik bardzo dobry, z końcową średnią ocen 4,47.</p>
+<h3 id="projekty-zaliczeniowe">Projekty zaliczeniowe</h3>
+<p>W ramach zajęć realizowałem wiele mniej lub bardziej ciekawych projektów. Te, które warto wspomnieć, to:</p>
+<ul>
+<li>TODO lista</li>
+<li>a</li>
+<li>b</li>
+</ul>
 
 
     </div>
@@ -122,7 +132,7 @@
   
   <footer>
     &copy; Copyright 2024 by
-    <a  href="/" >
+    <a  href="/pl-PL" >
       Michał Wdowski</a>.
   </footer>
   
