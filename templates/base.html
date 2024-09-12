@@ -1,9 +1,10 @@
-{% import "macros.html" as macros %}
+{% import "theme_control.html" as theme_control %}
+{% import "language_control.html" as language_control %}
 
 <!DOCTYPE html>
-{%block lang%}
+{% block lang %}
 <html lang="{{ lang }}">
-{%endblock lang%}
+{% endblock lang %}
 
 <head>
   {% block head %}
@@ -11,43 +12,54 @@
   <title>Michał Wdowski</title>
   {% endblock head %}
   {% block css %}
-  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
-  <link rel="stylesheet" href="{{ get_url(path='custom.css') | safe }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ get_url(path='css/combined.css') | safe }}" type="text/css">
   {% endblock css %}
 </head>
 
 <body>
   {% block header %}
-  <header>
-    <nav>
-      <a class="button" {% if lang=="pl-PL" %} href="/pl-PL" {% else %} href="/" {% endif %}>
-        {{trans(key="mainpage", lang=lang)}}</a>
-      <a class="button" {% if lang=="pl-PL" %} href="/pl-PL/university" {% else %} href="/university" {% endif %}>
-        {{trans(key="university", lang=lang)}}</a>
-      <a class="button" {% if lang=="pl-PL" %} href="/pl-PL/projects" {% else %} href="/projects" {% endif %} style="pointer-events: none">
-        {{trans(key="projects", lang=lang)}}</a>
-
-    </nav>
-    <div style="display: inline-block; margin: auto 1rem auto 0; position: relative;">
-      {{macros::language_switcher2()}}
+  <nav>
+    <header><a href="#">Michał Wdowski</a></header>
+    <input type="checkbox" id="nav" hidden checked>
+    <div overflow>
+      <ul>
+        <li>
+          <a href="{{ get_url(path='@/_index.md', lang=lang) }}">
+            {{ trans(key="mainpage", lang=lang) }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ get_url(path='@/university/_index.md', lang=lang) }}">
+            {{ trans(key="university", lang=lang) }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ get_url(path='@/projects/_index.md', lang=lang) }}">
+            {{ trans(key="projects", lang=lang) }}
+          </a>
+        </li>
+        {{ theme_control::get() }}
+        {{ language_control::get() }}
+      </ul>
     </div>
-  </header>
+  </nav>
   {% endblock header %}
 
-  <div class="section">
-    <div class="container">
+  <section container class="section">
+    <div class="container" style="text-align: justify;">
       {% block content %}
       {% endblock content%}
     </div>
-  </div>
+  </section>
 
-  {% block footer %}
   <footer>
-    &copy; Copyright {{now() | date(format="%Y")}} by
-    <a {% if lang=="pl-PL" %} href="/pl-PL" {% else %} href="/" {% endif %}>
-      Michał Wdowski</a>.
+    {% block footer %}
+    &copy; Copyright {{ now() | date(format="%Y") }} by Michał Wdowski.
+    Generated with <a href="https://www.getzola.org/">Zola</a>.
+    CSS based on <a href="https://github.com/raj457036/attriCSS">attriCSS</a>.
+    {% endblock footer %}
   </footer>
-  {% endblock footer %}
 
 </body>
 

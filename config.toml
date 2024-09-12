@@ -17,7 +17,7 @@ highlight_code = false
 
 [translations]
 university = "University"
-mainpage = "Home page"
+mainpage = "Home"
 projects = "Projects"
 
 [languages.pl-PL]

@@ -10,6 +10,8 @@ Ukończyłem kierunek Informatyka i Systemy Informacyjne na wydziale Matematyki 
 
 ### Projekty zaliczeniowe
 W ramach zajęć realizowałem wiele mniej lub bardziej ciekawych projektów. Te, które warto wspomnieć, to:
-- TODO lista
-- a
-- b
+- shogi - gra, serwer i silnik (praca inżynierska)
+- algorytm k-średnich zaimplementowany na GPU
+- odtwarzacz MP3 na Raspberry Pi
+- demo renderowania grafiki 3D
+- aplikacja na telefon do mierzenia czasu ułożenia kostki Rubika

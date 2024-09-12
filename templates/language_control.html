@@ -1,0 +1,60 @@
+{% macro get() %}
+<script>
+  function initializeLanguageControl() {
+    let prefersPolish = Navigator.language in ["pl", "pl-pl", "PL-pl", "pl-PL", "PL-PL"];
+
+    function setLanguage(language) {
+      localStorage.setItem('language', language);
+      applyLanguage(language);
+    }
+
+    function loadLanguage(language) {
+      language = localStorage.getItem('language');
+      language ??= prefersPolish ? 'polish' : 'english';
+      applyLanguage(language);
+    }
+
+    function applyLanguage(language) {
+      if (language == 'polish' && !window.location.pathname.startsWith("/pl-PL")) {
+        window.location.pathname = "pl-PL" + window.location.pathname;
+      }
+      else if (language == 'english' && window.location.pathname.startsWith("/pl-PL")) {
+        window.location.pathname = window.location.pathname.substring(6);
+      }
+    }
+
+    window.setLanguage = setLanguage;
+
+    loadLanguage();
+  }
+</script>
+
+<li>
+  <a>
+    <label for="language-polish">
+      <input id="language-polish" type="radio" name="language" value="polish"
+        style="width: 0; opacity: 0; height: 0; position: absolute;">
+      &#127477&#127473 PL
+    </label>
+  </a>
+</li>
+<li>
+  <a>
+    <label for="language-english">
+      <input id="language-english" type="radio" name="language" value="english"
+        style="width: 0; opacity: 0; height: 0; position: absolute;">
+      &#127468&#127463 EN
+    </label>
+  </a>
+</li>
+
+<script>
+  let polish = document.getElementById('language-polish');
+  let english = document.getElementById('language-english');
+
+  polish.addEventListener('click', event => window.setLanguage('polish'));
+  english.addEventListener('click', event => window.setLanguage('english'));
+
+  initializeLanguageControl();
+</script>
+{% endmacro %}

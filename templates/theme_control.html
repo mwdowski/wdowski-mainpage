@@ -1,0 +1,59 @@
+{% macro get() %}
+<script>
+  function initializeThemeControl() {
+    let prefersDark = matchMedia('(prefers-color-scheme: dark)');
+    prefersDark.addEventListener('change', event => loadTheme());
+
+    function setTheme(theme) {
+      if (theme == 'auto') {
+        localStorage.removeItem('theme');
+        loadTheme(null);
+      } else {
+        localStorage.setItem('theme', theme);
+        applyTheme(theme);
+      }
+    }
+
+    function loadTheme(theme) {
+      theme = localStorage.getItem('theme');
+      theme ??= (prefersDark.matches) ? 'dark' : 'default';
+      applyTheme(theme);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.className = theme;
+    }
+
+    window.setTheme = setTheme;
+
+    loadTheme();
+  }
+</script>
+<li>
+  <a>
+    <label for="color-mode-light">
+      <input id="color-mode-light" type="radio" name="color-mode" value="light"
+        style="width: 0; opacity: 0; height: 0; position: absolute;">
+      &#127774;
+    </label>
+  </a>
+</li>
+<li>
+  <a>
+    <label for="color-mode-dark">
+      <input id="color-mode-dark" type="radio" name="color-mode" value="dark"
+        style="width: 0; opacity: 0; height: 0; position: absolute;">
+      &#127762;
+    </label>
+  </a>
+</li>
+<script>
+  let light = document.getElementById('color-mode-light');
+  let dark = document.getElementById('color-mode-dark');
+
+  light.addEventListener('click', event => window.setTheme("light"));
+  dark.addEventListener('click', event => window.setTheme("dark"));
+
+  initializeThemeControl();
+</script>
+{% endmacro %}
